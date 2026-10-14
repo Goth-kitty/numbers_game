@@ -1,0 +1,53 @@
+import random
+
+def random_num(low, high):
+    return random.randint(low, high)
+
+begin_low = 1
+end_low = 20
+begin_high = 100
+end_high = 200
+
+def begin_range(begin_low, end_low ):
+    return random.randint(begin_low, end_low)
+def end_range(begin_high, end_high):
+    return random.randint(begin_high, end_high)
+
+begin = begin_range(begin_low, end_low)
+end = end_range(begin_high, end_high)
+
+
+number = random_num(begin, end)
+print("select a difficulty")
+print("1. Easy")
+print("2. Medium")
+print("3. Hard")
+choice = int(input("Enter your choice: "))
+if choice == 1:
+    attempts = 10
+elif choice == 2:
+    attempts = 5
+elif choice == 3:
+    attempts = 2
+
+print(f"you have {attempts} attempts")
+print(f"the range is between {begin} and {end}")
+print("what do you think the whole number is?")
+
+
+
+while True:
+    if attempts > 0:
+         guess = int(input( ))
+         if guess == number:
+             print(f"congrats the number is indeed {number}")
+             attempts = attempts - 1
+         elif guess > number:
+                print("your guess is too high")
+                attempts = attempts - 1
+         else:
+             print("your guess is too low")
+             attempts = attempts - 1
+    else:
+        print(f"you failed the number was {number}")
+        break
